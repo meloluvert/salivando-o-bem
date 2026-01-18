@@ -12,6 +12,7 @@ const TextImage: React.FC<TextImageProps> = ({
     reverse,
 }) => {
     const isDark = !!backgroundImage;
+    console.log(media)
     return (
         <div className={`relative overflow-hidden shadow-md  w-full py-10`}>
 
@@ -51,7 +52,9 @@ const TextImage: React.FC<TextImageProps> = ({
                                 "
                                 width={300}
                                 height={400}
+                                unoptimized={true}
                             />
+                           
                         )}
 
                         {media.mime.startsWith('video/') && (

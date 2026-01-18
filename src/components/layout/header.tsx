@@ -61,17 +61,17 @@ export default function Header() {
               
               {/* Dropdown: Doenças Bucais */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-primary font-bold uppercase tracking-wider">
+                <NavigationMenuTrigger className="text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider ">
                   Doenças Bucais
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[250px] gap-2 p-4 bg-white">
+                  <ul className="grid w-[250px] gap-2 bg-white">
                     {diseases.map((disease) => (
                       <li key={disease.title}>
                         <NavigationMenuLink asChild>
                           <Link
                             href={disease.href}
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-100 hover:text-secondary"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-darkBlue hover:text-white "
                           >
                             <div className="text-sm font-semibold leading-none">{disease.title}</div>
                           </Link>
@@ -84,7 +84,7 @@ export default function Header() {
 
               <NavigationMenuItem>
                 <Link href="/dicas" legacyBehavior passHref>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-primary font-bold uppercase tracking-wider`}>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider`}>
                     Dicas de Saúde Bucal
                   </NavigationMenuLink>
                 </Link>
@@ -93,7 +93,7 @@ export default function Header() {
               {/* Link: Youtube */}
               <NavigationMenuItem>
                 <Link href="https://www.youtube.com/@salivandoobem" target="_blank" legacyBehavior passHref>
-                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-primary font-bold uppercase tracking-wider flex gap-1 items-center`}>
+                  <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider flex gap-1 items-center`}>
                     Youtube <ExternalLink size={14} />
                   </NavigationMenuLink>
                 </Link>
