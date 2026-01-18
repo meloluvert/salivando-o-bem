@@ -4,7 +4,7 @@ import * as React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, ChevronDown, ExternalLink } from 'lucide-react'
-
+import { FaYoutube } from "react-icons/fa6";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -94,7 +94,7 @@ export default function Header() {
               <NavigationMenuItem>
                 <Link href="https://www.youtube.com/@salivandoobem" target="_blank" legacyBehavior passHref>
                   <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider flex gap-1 items-center`}>
-                    Youtube <ExternalLink size={14} />
+                  <FaYoutube size={40} className='text-darkBlue text-4xl ' />
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -149,7 +149,7 @@ export default function Header() {
                   target="_blank"
                   className="text-primary font-bold uppercase py-2 flex items-center gap-2"
                 >
-                  Youtube <ExternalLink size={16} />
+                  Youtube <FaYoutube />
                 </Link>
               </div>
             </SheetContent>

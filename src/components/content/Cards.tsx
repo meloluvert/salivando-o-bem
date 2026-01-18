@@ -78,12 +78,15 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
     const CardContent = ({ item }: { item: CardItem }) => (
         <div className="flex h-full flex-col bg-[#3F547E] rounded-xl shadow-lg border-b-4 border-yellow-400">
             {renderMedia(item)}
-            <div className="p-6 text-white flex-grow">
-                <BlocksRenderer
-                    content={item.text}
-                    blocks={getCustomBlocks(true)}
-                />
-            </div>
+            {item.text &&
+                <div className="p-6 text-white flex-grow">
+                    
+                    <BlocksRenderer
+                        content={item.text}
+                        blocks={getCustomBlocks(true)}
+                    />
+                </div>
+            }
         </div>
     );
 
@@ -100,11 +103,11 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
             )}
 
             <div className="max-w-7xl mx-auto z-10 relative">
-                {/* Intro Text */}
+                {text &&
                 <div className={`mb-12 ${isDark ? 'text-white' : 'text-gray-800'}`}>
                     <BlocksRenderer content={text} blocks={getCustomBlocks(isDark)} />
                 </div>
-
+}
                 {slideshow ? (
                     <div className="w-full">
                         <Carousel
@@ -119,7 +122,7 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
                                 {card.map((item) => (
                                     <CarouselItem
                                         key={item.id}
-                                        className="pl-4" // Removidas as classes md:basis-1/...
+                                        className="pl-4"
                                         style={{
                                             flex: `0 0 ${100 / slideshow_quantity}%`
                                         }}
@@ -152,7 +155,7 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
                     </div>
                 ) : (
                     /* Normal Flex Mode */
-                    <div className="flex flex-wrap justify-center gap-6">
+                    <div className="flex flex-wrap justify-start gap-6">
                         {card.map((item) => (
                             <div key={item.id} className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]">
                                 <CardContent item={item} />

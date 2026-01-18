@@ -35,7 +35,7 @@ const TextImage: React.FC<TextImageProps> = ({
                 className={`relative z-10 flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'
                     } items-center justify-between gap-8  max-w-7xl mx-auto px-4 py-12`}
             >
-                <div className={`flex-1 ${backgroundImage && 'text-white'}`}>
+                <div className={`flex-1 ${backgroundImage ? 'text-white' : 'text-black'}`}>
                     <BlocksRenderer blocks={getCustomBlocks(isDark)} content={text} />
                 </div>
                 {media &&

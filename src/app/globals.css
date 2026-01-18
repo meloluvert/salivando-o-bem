@@ -6,6 +6,7 @@
 :root {
   --primary: #0098DA;
   --secondary: #F2D25D;
+  --black: #2e2e2e;
   --dark-blue: #415479;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -47,6 +48,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-darkBlue: var(--dark-blue);
+  --color-black: var(--black);
   --shadow-blue: 5px 7px 0px 0px var(--primary);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
