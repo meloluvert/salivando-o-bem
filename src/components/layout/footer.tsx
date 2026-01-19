@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-black pt-12 pb-6">
+    <footer className="bg-secondary text-black pt-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-white/10">
           
@@ -44,7 +44,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 flex flex-col items-center gap-2 text-xs ">
+      
+      </div>
+      <div className="mt-8 flex flex-col items-center gap-2 text-xs bg-black text-white py-4">
           <p>© {currentYear} Salivando o Bem - Todos os direitos reservados.</p>
           <p className="flex items-center gap-1">
             Desenvolvido por 
@@ -58,7 +60,6 @@ const Footer = () => {
             </Link>
           </p>
         </div>
-      </div>
     </footer>
   );
 };

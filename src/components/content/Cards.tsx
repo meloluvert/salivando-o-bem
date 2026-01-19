@@ -76,11 +76,11 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
     };
 
     const CardContent = ({ item }: { item: CardItem }) => (
-        <div className="flex h-full flex-col bg-[#3F547E] rounded-xl shadow-lg border-b-4 border-yellow-400">
+        <div className="flex h-full  text-white flex-col bg-[#3F547E] rounded-xl shadow-lg border-b-4 border-yellow-400   transition-all hover:opacity-95 w-full ">
             {renderMedia(item)}
             {item.text &&
-                <div className="p-6 text-white flex-grow">
-                    
+                <div className="p-6 flex-grow">
+
                     <BlocksRenderer
                         content={item.text}
                         blocks={getCustomBlocks(true)}
@@ -104,10 +104,10 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
 
             <div className="max-w-7xl mx-auto z-10 relative">
                 {text &&
-                <div className={`mb-12 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-                    <BlocksRenderer content={text} blocks={getCustomBlocks(isDark)} />
-                </div>
-}
+                    <div className={`mb-12 ${isDark ? 'text-white' : 'text-gray-800'}`}>
+                        <BlocksRenderer content={text} blocks={getCustomBlocks(isDark)} />
+                    </div>
+                }
                 {slideshow ? (
                     <div className="w-full">
                         <Carousel
@@ -154,14 +154,25 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
                         </div>
                     </div>
                 ) : (
-                    /* Normal Flex Mode */
-                    <div className="flex flex-wrap justify-start gap-6">
-                        {card.map((item) => (
-                            <div key={item.id} className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]">
-                                <CardContent item={item} />
-                            </div>
-                        ))}
+
+                    <div className="flex flex-col sm:flex-row flex-wrap justify-start gap-6">
+                        {card.map((item) => {
+                            const percentage = card.length >= 4 ? 25 : (100 / card.length);
+
+                            return (
+                                <div
+                                    key={item.id}
+                                    className="w-full sm:basis-1/2 md:w-auto md:flex-grow-0 md:flex-shrink-0"
+                                    style={{
+                                        flexBasis: `calc(${percentage}% - 1.5rem)`
+                                    }}
+                                >
+                                    <CardContent item={item} />
+                                </div>
+                            );
+                        })}
                     </div>
+
                 )}
             </div>
         </section>

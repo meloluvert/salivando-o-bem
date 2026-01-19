@@ -39,7 +39,7 @@ export const getCustomBlocks = (isDarkBackground?: boolean): BlocksConfig => ({
       );
     }
 
-    const triggerClasses = `cursor-help ${isDarkBackground ? 'text-secondary': 'text-darkBlue'} border-b-2 border-dotted border-secondary font-semibold text-inherit hover:scale-[1.01] transition-transform inline-block`;
+    const triggerClasses = `cursor-help ${isDarkBackground ? 'text-secondary': 'text-darkBlue'} border-b-2 border-dotted border-secondary font-semibold text-inherit transition-transform`;
 
     // VERSÃO MOBILE: Dialog (Modal)
     if (isMobile) {

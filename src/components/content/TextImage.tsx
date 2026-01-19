@@ -12,9 +12,9 @@ const TextImage: React.FC<TextImageProps> = ({
     reverse,
 }) => {
     const isDark = !!backgroundImage;
-    console.log(media)
+    
     return (
-        <div className={`relative overflow-hidden shadow-md  w-full py-10`}>
+        <div className={`relative overflow-hidden  w-full py-10`}>
 
             {/* Background */}
             {backgroundImage && (
@@ -33,9 +33,9 @@ const TextImage: React.FC<TextImageProps> = ({
             <Reveal>
             <div
                 className={`relative z-10 flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'
-                    } items-center justify-between gap-8  max-w-7xl mx-auto px-4 py-12`}
+                    } items-center justify-between gap-8  max-w-7xl mx-auto px-4 py-6`}
             >
-                <div className={`flex-1 ${backgroundImage ? 'text-white' : 'text-black'}`}>
+                <div className={`flex-1 ${backgroundImage ? 'text-white' : 'text-black'} text-justify md:text-left`}>
                     <BlocksRenderer blocks={getCustomBlocks(isDark)} content={text} />
                 </div>
                 {media &&
@@ -60,7 +60,9 @@ const TextImage: React.FC<TextImageProps> = ({
                         {media.mime.startsWith('video/') && (
                             <video
                                 src={media.url}
-                                controls
+                                autoPlay
+                                muted
+                                loop
                                 className="w-full h-auto rounded-lg"
                             />
                         )}

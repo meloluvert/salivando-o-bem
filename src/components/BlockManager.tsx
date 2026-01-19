@@ -19,7 +19,7 @@ const BlockManager: React.FC<BlockManagerProps> = ({ blocks }) => {
   if (!blocks) return null;
 
   return (
-    <div className="flex flex-col gap-10 w-full">
+    <div className="flex flex-col w-full">
       {blocks.map((block) => {
         // Mapeamento baseado no __component
         switch (block.__component) {
@@ -29,7 +29,7 @@ const BlockManager: React.FC<BlockManagerProps> = ({ blocks }) => {
               <TextImage
                 key={block.id}
                 text={block.text} // Passa o array de rich text direto
-                reverse={block.reverse}
+                reverse={block.reversed}
                 media={getStrapiMedia(block.media)} // Normaliza a URL da mídia
                 backgroundImage={getStrapiMedia(block.background)} // Normaliza o BG
               />
@@ -40,8 +40,8 @@ const BlockManager: React.FC<BlockManagerProps> = ({ blocks }) => {
               <List
                 key={block.id}
                 text={block.text}
-                Item={block.Item || []} // Garante array vazio se nulo
-                backgroundImage={getStrapiMedia(block.backgroundImage)}
+                Item={block.item || []} // Garante array vazio se nulo
+                backgroundImage={getStrapiMedia(block.background)}
               />
             );
           case 'blocks.card':

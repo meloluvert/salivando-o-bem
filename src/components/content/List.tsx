@@ -8,8 +8,7 @@ import { Reveal } from '../animation/Reveal';
 const List: React.FC<ListProps> = ({ text, Item, backgroundImage }) => {
     const isDark = !!backgroundImage;
     return (
-        <div className="relative overflow-hidden w-full py-12 px-4 md:px-0">
-            {/* Lógica Background Image  */}
+        <div className="relative overflow-hidden w-full py-6 px-4 ">
             {backgroundImage && (
                 <>
                     <div
@@ -24,20 +23,20 @@ const List: React.FC<ListProps> = ({ text, Item, backgroundImage }) => {
                 {/* Rich Text Superior */}
 
                 <Reveal>
-                    <div className={`mb-10 ${backgroundImage ? 'text-white' : 'text-gray-800'}`}>
+                    <div className={`mb-2 ${backgroundImage ? 'text-white' : 'text-gray-800'}`}>
                         <BlocksRenderer
                             content={text}
                             blocks={getCustomBlocks(isDark)}
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 gap-4">
+                    <div className="grid grid-cols-1 gap-4 px-2 py-3">
                         {Item.map((item) => (
                             <div
                                 key={item.id}
-                                className="bg-white border-2 border-secondary p-6 rounded-lg shadow-sm hover:shadow-md hover:scale-101 transition"
+                                className={`${ isDark ? 'bg-darkBlue ' : 'bg-white border-2 border-secondary'} p-6 rounded-lg shadow-sm hover:shadow-md hover:scale-101 transition`}
                             >
-                                <p className="text-gray-700 font-medium leading-snug">
+                                <p className={`${ isDark ? 'text-white' : 'text-black'} font-medium leading-snug`}>
                                     {item.text}
                                 </p>
                             </div>
