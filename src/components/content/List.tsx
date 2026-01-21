@@ -5,10 +5,10 @@ import { ListProps } from '@/types/components';
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { getCustomBlocks } from '@/utils/render-blocks';
 import { Reveal } from '../animation/Reveal';
-const List: React.FC<ListProps> = ({ text, Item, backgroundImage }) => {
+const List: React.FC<ListProps> = ({ text, Item, backgroundImage, slug }) => {
     const isDark = !!backgroundImage;
     return (
-        <div className="relative overflow-hidden w-full py-6 px-4 ">
+        <div className="relative  w-full py-6 px-4 scroll-mt-28 " id={slug}>
             {backgroundImage && (
                 <>
                     <div
@@ -23,20 +23,21 @@ const List: React.FC<ListProps> = ({ text, Item, backgroundImage }) => {
                 {/* Rich Text Superior */}
 
                 <Reveal>
-                    <div className={`mb-2 ${backgroundImage ? 'text-white' : 'text-gray-800'}`}>
-                        <BlocksRenderer
-                            content={text}
-                            blocks={getCustomBlocks(isDark)}
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 px-2 py-3">
+                    {text &&
+                        <div className={`mb-2 ${backgroundImage ? 'text-white' : 'text-gray-800'}`}>
+                            <BlocksRenderer
+                                content={text}
+                                blocks={getCustomBlocks(isDark)}
+                            />
+                        </div>
+                    }
+                    <div className="grid grid-cols-1 gap-4 px-2 ">
                         {Item.map((item) => (
                             <div
                                 key={item.id}
-                                className={`${ isDark ? 'bg-darkBlue ' : 'bg-white border-2 border-secondary'} p-6 rounded-lg shadow-sm hover:shadow-md hover:scale-101 transition`}
+                                className={`${isDark ? 'bg-darkBlue ' : 'bg-white border-2 border-secondary'} p-6 rounded-lg shadow-sm hover:shadow-md hover:scale-101 transition`}
                             >
-                                <p className={`${ isDark ? 'text-white' : 'text-black'} font-medium leading-snug`}>
+                                <p className={`${isDark ? 'text-white' : 'text-black'} font-medium leading-snug`}>
                                     {item.text}
                                 </p>
                             </div>

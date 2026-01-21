@@ -51,6 +51,9 @@ export async function getPageData(path: string) {
                 }
               }
             },
+            "blocks.side-bar":{
+              populate:"*"              
+            },
             "blocks.list": {
               populate: "*"
             }

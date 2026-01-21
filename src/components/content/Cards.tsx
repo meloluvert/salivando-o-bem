@@ -24,9 +24,10 @@ interface CardsProps {
     slideshow_quantity: number;
     card: CardItem[];
     background?: any;
+    slug?: string
 }
 
-const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card, background }) => {
+const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card, background, slug }) => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
     const isDark = !!background;
@@ -91,7 +92,7 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
     );
 
     return (
-        <section className="relative w-full py-16 px-4 overflow-hidden">
+        <section className="relative w-full py-16 px-4  scroll-mt-28 " id={slug}>
             {/* Background Logic */}
             {background && (
                 <div
