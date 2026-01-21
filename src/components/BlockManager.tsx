@@ -3,7 +3,13 @@ import TextImage from '@/components/content/TextImage';
 import List from '@/components/content/List';
 import { getStrapiMedia } from '@/lib/strapi';
 import Cards from "@/components/content/Cards"
-import{ SideBar }from "@/components/content/SideBar"
+import { SideBar } from "@/components/content/SideBar"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
 
 // Definição dos tipos básicos para ajudar o TS
 interface Block {
@@ -25,10 +31,35 @@ const BlockManager: React.FC<BlockManagerProps> = ({ blocks }) => {
 
     return (
         <div className="flex w-full  mx-auto relative items-start">
-            {/* 1. Se houver sidebar, renderiza ela na esquerda */}
             {sidebarBlock && (
-                <aside className=" hidden lg:block w-64  sticky top-[112px]  left-0 self-start min-h-full">
+                <aside className="  w-64 absolute lg:sticky top-[112px]  left-0 self-start min-h-full">
                     <SideBar text={sidebarBlock.text} item={sidebarBlock.item} />
+                    <nav className=' z-40 block lg:hidden backdrop-blur fixed top-[112px] bg-primary/80 left-0 p-1 min-w-screen'>
+                        <Accordion
+                            type="single"
+                            collapsible
+                            defaultValue="item-1"
+                            className="w-full text-white"
+                        >
+
+                            <AccordionItem key="2" value="a">
+                                <AccordionTrigger>Lista</AccordionTrigger>
+                                <AccordionContent>
+                                    {sidebarBlock.item.map((link) => (
+
+                                        <a
+                                            href={`#${link.slug_section}`}
+                                            className=" transition-colors  h-auto whitespace-normal text-lg font-medium"
+                                        >
+                                            <p>{link.text}</p>
+                                        </a>
+                                    ))}
+                                </AccordionContent>
+                            </AccordionItem>
+
+                        </Accordion>
+
+                    </nav>
                 </aside>
             )}
             <div className="flex flex-col w-full">

@@ -18,7 +18,7 @@ export const getCustomBlocks = (isDarkBackground?: boolean): BlocksConfig => ({
   link: ({ children, url, rel }) => {
     const [isMobile, setIsMobile] = useState(false);
 
-    // Checa se é mobile para alternar entre Tooltip e Dialog
+    
     useEffect(() => {
       const checkMobile = () => setIsMobile(window.innerWidth < 768);
       checkMobile();
@@ -41,7 +41,7 @@ export const getCustomBlocks = (isDarkBackground?: boolean): BlocksConfig => ({
 
     const triggerClasses = `cursor-help ${isDarkBackground ? 'text-secondary': 'text-darkBlue'} border-b-2 border-dotted border-secondary font-semibold text-inherit transition-transform`;
 
-    // VERSÃO MOBILE: Dialog (Modal)
+    
     if (isMobile) {
       return (
         <Dialog>
@@ -60,7 +60,7 @@ export const getCustomBlocks = (isDarkBackground?: boolean): BlocksConfig => ({
       );
     }
 
-    // VERSÃO DESKTOP: Tooltip
+    
     return (
       <Tooltip.Provider delayDuration={200}>
         <Tooltip.Root>
@@ -89,12 +89,12 @@ export const getCustomBlocks = (isDarkBackground?: boolean): BlocksConfig => ({
   
   heading: ({ level, children }) => {
     const styles = {
-      1: "text-4xl md:text-5xl font-bold mb-4",
-      2: "text-2xl md:text-3xl font-semibold mb-3",
-      3: "text-xl md:text-2xl font-semibold mb-2",
-      4: "text-lg md:text-xl font-semibold mb-2",
-      5: "text-md md:text-lg font-bold mb-1",
-      6: "text-base font-bold mb-1",
+      1: "text-4xl md:text-5xl font-bold mb-4 indent-0",
+      2: "text-2xl md:text-3xl font-semibold mb-3 indent-0",
+      3: "text-xl md:text-2xl font-semibold mb-2 indent-0",
+      4: "text-lg md:text-xl font-semibold mb-2 indent-0",
+      5: "text-md md:text-lg font-bold mb-1 indent-0",
+      6: "text-base font-bold mb-1 indent-0",
     };
 
     const Tag = `h${level}` as const;

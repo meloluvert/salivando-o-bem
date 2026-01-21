@@ -13,20 +13,11 @@ import {
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { getCustomBlocks } from '@/utils/render-blocks';
 import { SidebarProvider } from '@/components/ui/sidebar';
-interface SidebarItem {
-  id: number;
-  text: string;
-  slug_section: string;
-}
-
-interface SideBarProps {
-  text?: any[];
-  item: SidebarItem[];
-}
+import { SideBarProps} from "@/types/components"
 
 export function SideBar({ text, item }: SideBarProps) {
   return (
-    <SidebarProvider className="items-start  h-fit min-h-0  ">
+    <SidebarProvider className="items-start  h-fit min-h-0 hidden lg:block ">
       <Sidebar className="hidden min-h-full md:flex bg-primary border-r-0  min-h-[calc(100vh-112px)]" collapsible="none">
         <SidebarContent className="bg-primary text-white">
           <SidebarGroup>
@@ -39,12 +30,12 @@ export function SideBar({ text, item }: SideBarProps) {
               <SidebarMenu>
                 {item.map((link) => (
                   <SidebarMenuItem key={link.id}>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton asChild className='hover:bg-darkBlue hover:text-white'>
                       <a
                         href={`#${link.slug_section}`}
-                        className="hover:bg-white/10 transition-colors py-6 h-auto whitespace-normal text-sm font-medium"
+                        className=" transition-colors  h-auto whitespace-normal text-sm font-medium"
                       >
-                        <span>{link.text}</span>
+                        <p>{link.text}</p>
                       </a>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

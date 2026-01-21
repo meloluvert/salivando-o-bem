@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-white/10">
           
-          {/* Logo e Descrição Curta */}
+          
           <div className="flex flex-col items-center md:items-start gap-4">
             <Link href="/">
               <Image 
@@ -28,7 +28,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Links e Social */}
+          
           <div className="flex flex-col items-center gap-4">
             <h3 className="font-bold uppercase tracking-widest text-sm">Se inscreva!</h3>
             <Link 
@@ -43,7 +43,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
       
       </div>
       <div className="mt-8 flex flex-col items-center gap-2 text-xs bg-black text-white py-4">

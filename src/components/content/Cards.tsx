@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { getCustomBlocks } from '@/utils/render-blocks';
 import { getStrapiMedia } from '@/lib/strapi';
+import {CardsProps, CardItem} from "@/types/components"
 import {
     Carousel,
     CarouselContent,
@@ -11,28 +12,14 @@ import {
     CarouselApi,
 } from "@/components/ui/carousel";
 
-interface CardItem {
-    id: number;
-    text: any[];
-    yotube_code?: string | null;
-    media?: any;
-}
 
-interface CardsProps {
-    text: any[];
-    slideshow: boolean;
-    slideshow_quantity: number;
-    card: CardItem[];
-    background?: any;
-    slug?: string
-}
 
 const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card, background, slug }) => {
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
     const isDark = !!background;
 
-    // Atualiza o dente ativo no slideshow
+    // Atualiza o "dente" ativo no slideshow
     React.useEffect(() => {
         if (!api) return;
         api.on("select", () => {
@@ -41,7 +28,6 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
     }, [api]);
 
     const renderMedia = (item: CardItem) => {
-        // 1. Prioridade: YouTube
         if (item.yotube_code) {
             return (
                 <div className="aspect-video w-full">
@@ -56,7 +42,7 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
             );
         }
 
-        // 2. Imagem do Strapi
+        
         const mediaData = getStrapiMedia(item.media);
         if (mediaData) {
             console.log(mediaData)
@@ -93,7 +79,7 @@ const Cards: React.FC<CardsProps> = ({ text, slideshow, slideshow_quantity, card
 
     return (
         <section className="relative w-full py-16 px-4  scroll-mt-28 " id={slug}>
-            {/* Background Logic */}
+            
             {background && (
                 <div
                     className="absolute inset-0 bg-cover bg-center -z-10"

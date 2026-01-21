@@ -35,12 +35,12 @@ const TextImage: React.FC<TextImageProps> = ({
 
         if (media) {
             return (
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center p-2 ">
                     {media.mime?.startsWith('image/') && (
                         <Image
                             src={media.url}
                             alt={media.alt || 'Media'}
-                            className="rounded-lg shadow-blue hover:scale-[1.01] transition object-cover"
+                            className="rounded-lg shadow-blue hover:scale-[1.01] transition "
                             width={300}
                             height={400}
                             unoptimized
@@ -54,7 +54,7 @@ const TextImage: React.FC<TextImageProps> = ({
                             muted
                             loop
                             playsInline
-                            className="max-w-full md:max-w-lg rounded-lg shadow-2xl"
+                            className="max-w-sm  rounded-lg shadow-2xl"
                         />
                     )}
                 </div>
@@ -82,10 +82,10 @@ const TextImage: React.FC<TextImageProps> = ({
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <Reveal>
                     <div
-                        className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} 
+                        className={`flex flex-col ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} 
                         items-center justify-between gap-12`}
                     >
-                        <div className={`flex-1 ${isDark ? 'text-white' : 'text-black'} text-justify`}>
+                        <div className={`flex-1 ${isDark ? 'text-white' : 'text-black'} text-justify indent-8`}>
                             <BlocksRenderer blocks={getCustomBlocks(isDark)} content={text} />
                         </div>
                         

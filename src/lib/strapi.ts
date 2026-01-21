@@ -1,16 +1,13 @@
 import qs from 'qs';
 
-// URL base (variável de ambiente ou fallback local)
+
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337';
 
-/**
- * Helper para corrigir URLs de imagem do Strapi
- * Se vier "/uploads/img.png", transforma em "http://localhost:1337/uploads/img.png"
- */
+
 export function getStrapiMedia(media: any) {
   if (!media) return null;
 
-  // Suporte a diferentes formatos de resposta do Strapi (v4/v5/flat)
+  // Suporte a diferentes formatos de resposta do Strapi (
   const url = media.url || media.data?.attributes?.url || media.data?.url;
   const mime = media.mime || media.data?.attributes?.mime || media.data?.mime;
   const alt = media.alternativeText || media.data?.attributes?.alternativeText || "";
@@ -30,11 +27,10 @@ export function getStrapiMedia(media: any) {
   };
 }
 
-/**
- * Função genérica para buscar dados de uma página Single Type
- */
+
 export async function getPageData(path: string) {
-  // Query poderosa: "Popule o campo 'blocks' e TUDO que estiver dentro dele"
+ 
+
   const query = qs.stringify(
     
     {

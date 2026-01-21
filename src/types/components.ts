@@ -17,7 +17,7 @@ export interface TextImageProps {
 }
 
 export interface ListProps {
-  text: any[]; // Conteúdo do Rich Text (Strapi Blocks)
+  text: any[];
   Item: {
     id: number;
     text: string;
@@ -27,4 +27,31 @@ export interface ListProps {
     mime: string;
   };
   slug?: string;
+}
+
+export interface CardItem {
+  id: number;
+  text: any[];
+  yotube_code?: string | null;
+  media?: any;
+}
+
+export interface CardsProps {
+  text: any[];
+  slideshow: boolean;
+  slideshow_quantity: number;
+  card: CardItem[];
+  background?: any;
+  slug?: string
+}
+
+export interface SidebarItem {
+  id: number;
+  text: string;
+  slug_section: string;
+}
+
+export interface SideBarProps {
+  text?: any[];
+  item: SidebarItem[];
 }

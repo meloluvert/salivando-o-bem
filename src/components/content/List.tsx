@@ -20,7 +20,6 @@ const List: React.FC<ListProps> = ({ text, Item, backgroundImage, slug }) => {
             )}
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                {/* Rich Text Superior */}
 
                 <Reveal>
                     {text &&

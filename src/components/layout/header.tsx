@@ -54,12 +54,12 @@ export default function Header() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
+        
         <nav className="hidden md:flex items-center gap-6">
           <NavigationMenu>
             <NavigationMenuList>
               
-              {/* Dropdown: Doenças Bucais */}
+              
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider ">
                   Doenças Bucais
@@ -90,7 +90,7 @@ export default function Header() {
                 </Link>
               </NavigationMenuItem>
 
-              {/* Link: Youtube */}
+              
               <NavigationMenuItem>
                 <Link href="https://www.youtube.com/@salivandoobem" target="_blank" legacyBehavior passHref>
                   <NavigationMenuLink className={`${navigationMenuTriggerStyle()} text-darkBlue bg-trasnaparent font-bold uppercase tracking-wider flex gap-1 items-center`}>
@@ -103,7 +103,7 @@ export default function Header() {
           </NavigationMenu>
         </nav>
 
-        {/* Mobile Navigation (Sheet + Accordion) */}
+        
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
